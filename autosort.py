@@ -1,10 +1,12 @@
 import os
 import shutil
 
-# 1. SETUP: Tell the script where to look
-# For now, let's use a "Test" folder on your Desktop
-source_folder = os.path.expanduser("~/Desktop/Test_Downloads")
-destination_folder = os.path.expanduser("~/Desktop/Sorted_Files")
+# 1. SETUP: Using your exact OneDrive path
+# The 'r' before the quotes is very important for Windows!
+source_folder = r"C:\Users\aiden\OneDrive\Desktop\Test_Downloads"
+destination_folder = r"C:\Users\aiden\OneDrive\Desktop\Sorted_Files"
+
+print(f"Targeting Source: {source_folder}")
 
 # 2. DICTIONARY: Map file extensions to folder names
 # You can add more to this list later!
