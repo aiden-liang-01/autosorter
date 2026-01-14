@@ -1,0 +1,1 @@
+print("auto-sorter is ready!")
