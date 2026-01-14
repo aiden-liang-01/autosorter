@@ -1,15 +1,16 @@
-import os
-import shutil
+# importing necessary libraries
+import os # this is for file and directory operations
+import shutil # this is for moving files from one location to another
 
-# 1. SETUP: Using your exact absolute paths here is crucial for the script to work correctly.
-# The 'r' before the quotes is very important for Windows!
+# SETUP: Use absolute paths here is crucial for the script to work correctly on my pc
+# 'r' before the quotes to escape the backslashes
 source_folder = r"C:\Users\aiden\OneDrive\Desktop\Test_Downloads"
 destination_folder = r"C:\Users\aiden\OneDrive\Desktop\Sorted_Files"
 
 print(f"Targeting Source: {source_folder}")
 
-# 2. DICTIONARY: Map file extensions to folder names
-# You can add more to this list later!
+# DICTIONARY: Map file extensions to folder names
+# I can add more later
 file_types = {
     ".pdf": "Documents",
     ".jpg": "Images",
@@ -28,10 +29,10 @@ def sort_files():
         # Get the file extension (e.g., '.pdf')
         file_ext = os.path.splitext(filename)[1].lower()
 
-        if file_ext in file_types:
+        if file_ext in file_types: # compare the file extension to the dictionary keys
             # Determine which sub-folder it belongs in
-            subfolder_name = file_types[file_ext]
-            target_path = os.path.join(destination_folder, subfolder_name)
+            subfolder_name = file_types[file_ext] # get the corresponding folder name from the dictionary
+            target_path = os.path.join(destination_folder, subfolder_name) 
 
             # Create the sub-folder if it doesn't exist
             if not os.path.exists(target_path):
