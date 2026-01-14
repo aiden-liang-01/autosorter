@@ -1,7 +1,7 @@
 import os
 import shutil
 
-# 1. SETUP: Using your exact OneDrive path
+# 1. SETUP: Using your exact absolute paths here is crucial for the script to work correctly.
 # The 'r' before the quotes is very important for Windows!
 source_folder = r"C:\Users\aiden\OneDrive\Desktop\Test_Downloads"
 destination_folder = r"C:\Users\aiden\OneDrive\Desktop\Sorted_Files"
