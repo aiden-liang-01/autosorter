@@ -1,1 +1,1 @@
-# autosorter
+# This a small personal project to auto-sort files
