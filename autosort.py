@@ -21,17 +21,22 @@ file_types = {
 
 def sort_files():
     # Create the source/destination folders if they don't exist yet
+    # manually create dummy files with exact same extensions in the source folder to test the script
     if not os.path.exists(source_folder):
         os.makedirs(source_folder)
-    
+    if not os.path.exists(destination_folder):
+        os.makedirs(destination_folder)
+
     # Check every file in the source folder
     for filename in os.listdir(source_folder):
         # Get the file extension (e.g., '.pdf')
         file_ext = os.path.splitext(filename)[1].lower()
 
-        if file_ext in file_types: # compare the file extension to the dictionary keys
+        if file_ext in file_types: # file extension acts as keys to the dictionary and key value pairs
             # Determine which sub-folder it belongs in
-            subfolder_name = file_types[file_ext] # get the corresponding folder name from the dictionary
+            # get the corresponding folder name from the dictionary and store it in a variable
+            # if file_ext is '.pdf', then subfolder_name will be 'Documents'
+            subfolder_name = file_types[file_ext] 
             target_path = os.path.join(destination_folder, subfolder_name) 
 
             # Create the sub-folder if it doesn't exist
