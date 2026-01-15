@@ -2,8 +2,8 @@
 import os # this is for file and directory operations
 import shutil # this is for moving files from one location to another
 
-# SETUP: Use absolute paths here is crucial for the script to work correctly on my pc
-# 'r' before the quotes to escape the backslashes
+# SETUP: absolute paths here is crucial for the script to work correctly on my pc
+# 'r' before the quotes to escape the backslashes in windows file paths
 source_folder = r"C:\Users\aiden\OneDrive\Desktop\Test_Downloads"
 destination_folder = r"C:\Users\aiden\OneDrive\Desktop\Sorted_Files"
 
@@ -19,18 +19,33 @@ file_types = {
     ".exe": "Installers"
 }
 
+# these are dummy files
+# remember to remove for when actual use
+dummy_files = [
+    "report.pdf",
+    "photo.jpg",
+    "archive.zip",
+    "installer.exe",
+    "notes.txt" # this file type is not in the dictionary, so script should ignore it
+]
+
+# start of function
 def sort_files():
     # Create the source/destination folders if they don't exist yet
-    # manually create dummy files with exact same extensions in the source folder to test the script
     if not os.path.exists(source_folder):
         os.makedirs(source_folder)
     if not os.path.exists(destination_folder):
         os.makedirs(destination_folder)
+    #create dummy files with for loop
+    for name in dummy_files:
+        dummy_file_path = os.path.join(source_folder, name)
+        with open(dummy_file_path, 'w') as f:
+            pass # this creates an empty file with the specified name
 
     # Check every file in the source folder
     for filename in os.listdir(source_folder):
         # Get the file extension (e.g., '.pdf')
-        file_ext = os.path.splitext(filename)[1].lower()
+        file_ext = os.path.splitext(filename)[1].lower() # account for case sensitivity in file extensions
 
         if file_ext in file_types: # file extension acts as keys to the dictionary and key value pairs
             # Determine which sub-folder it belongs in
